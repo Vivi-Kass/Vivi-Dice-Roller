@@ -1,0 +1,100 @@
+﻿<Window x:Class="ViviDiceRoller.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ViviDiceRoller"
+        mc:Ignorable="d"
+        Title="Vivi Dice Roller" Height="300" Width="400" Icon="/bigIcon.ico" Background="DimGray" MinWidth="400" MinHeight="300" Closed="Window_Closed">
+
+
+    <DockPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="65*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="65*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="65*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="65*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="65*"/>
+                <ColumnDefinition Width="18*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Viewbox Grid.Row="5" Grid.Column="5" >
+                <Button Name="rollButton" Content="Roll Dice!" IsEnabled="False" ToolTip="Roll the dice with the given properties" Click="RollButton_Click"/>
+            </Viewbox>
+
+            <Viewbox Grid.Row="1" Grid.Column="1"  VerticalAlignment="Bottom">
+                <TextBlock VerticalAlignment="Bottom" TextAlignment="Center" Width="65" Height="35"><Run Text="Number Of "/><LineBreak/><Run Text="Dice"/></TextBlock>
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="1">
+                <TextBox Name="numOfDice" MinWidth="25" Height="10" Width="20" FontSize="6" TextAlignment="Center" ToolTip="Total number of dice to roll. Advantage or disadvantage will roll each one twice." TextChanged="NumOfDice_TextChanged"/>
+            </Viewbox>
+
+
+            <Viewbox  Grid.Row="1" Grid.Column="3" VerticalAlignment="Bottom">
+                <TextBlock VerticalAlignment="Bottom" TextAlignment="Center" Width="65" Height="35"><Run Text="Number Of "/><LineBreak/><Run Text="Sides"/></TextBlock>
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="3">
+                <TextBox Name="numOfSides" MinWidth="25" Height="10" Width="20" FontSize="6" TextAlignment="Center" ToolTip="Number of sides the dice have. Can be anything greater than 2." TextWrapping="Wrap" TextChanged="NumOfSides_TextChanged"/>
+            </Viewbox>
+
+
+            <Viewbox  Grid.Row="1" Grid.Column="5" VerticalAlignment="Bottom">
+                <TextBlock VerticalAlignment="Bottom" TextAlignment="Center" Width="65" Height="35"><Run Language="en-ca" Text="Modifier"/></TextBlock>
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="5">
+                <TextBox Name="modifier" MinWidth="25" Height="10" Width="20" FontSize="6" TextAlignment="Center" ToolTip="Optional positive or negative modifier for the dice" TextChanged="Modifier_TextChanged"/>
+            </Viewbox>
+
+
+            <Viewbox  Grid.Row="1" Grid.Column="7" VerticalAlignment="Bottom">
+                <TextBlock VerticalAlignment="Bottom" TextAlignment="Center" Width="65" Height="35"><Run Language="en-ca" Text="Advantage"/></TextBlock>
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="7">
+                <ComboBox Name="advantageState" MinWidth="60" MinHeight="25" SelectedIndex="0" ToolTip="A for advantage, D for disadvantage, N/A for neither. Will show each pair of dice rolled." SelectionChanged="advantageState_SelectionChanged">
+                    <ComboBoxItem Content="N/A"/>
+                    <ComboBoxItem Content="Adv"/>
+                    <ComboBoxItem Content="Disad"/>
+                </ComboBox>
+            </Viewbox>
+
+
+            <Viewbox  Grid.Row="1" Grid.Column="9" VerticalAlignment="Bottom">
+                <TextBlock VerticalAlignment="Bottom" TextAlignment="Center" Width="65" Height="35"><Run Text="Mod "/><LineBreak/><Run Text="Each Die"/></TextBlock>
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="9">
+                <CheckBox Name="modPerDie" ToolTip="Should the mod be added to each die" Click="ModPerDie_Click"/>
+            </Viewbox>
+
+
+            <Viewbox  Grid.Row="4" Grid.Column="1" VerticalAlignment="Bottom">
+                <TextBlock  VerticalAlignment="Bottom" TextAlignment="Center" Width="65" Height="35"><Run Text="Difficulty"/><LineBreak/><Run Text="Class (DC)"/></TextBlock>
+            </Viewbox>
+            <Viewbox Grid.Row="5" Grid.Column="1">
+                <TextBox Name="DifficultyClass" MinWidth="25" Height="10" Width="20" FontSize="6" TextAlignment="Center" ToolTip="Optional. Needs to beat this number to succeed. Must be equal to or less than the number of sides + mod" TextChanged="DifficultyClass_TextChanged"/>
+            </Viewbox>
+
+            <Viewbox Grid.Row="4" Grid.Column="7" Grid.RowSpan="3" Grid.ColumnSpan="3" StretchDirection="DownOnly" Stretch="UniformToFill">
+                <TextBox Background="DarkGray" Grid.Row="1" Name="RollText" Width="500" Height="500" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" FontSize="36" Text="" IsReadOnly="True" MouseDoubleClick="RollText_MouseDoubleClick"/>
+
+            </Viewbox>
+   
+
+        </Grid>
+    </DockPanel>
+</Window>
