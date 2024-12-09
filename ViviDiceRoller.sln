@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViviDiceRoller", "ViviDiceRoller.csproj", "{DE65645D-B08C-49D3-8B7C-05AF1E2C3915}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ViviDiceRollerSetup", "..\ViviDiceRollerSetup\ViviDiceRollerSetup.vdproj", "{016DB06F-782F-4703-B384-F3AA71AB9444}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{DE65645D-B08C-49D3-8B7C-05AF1E2C3915}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE65645D-B08C-49D3-8B7C-05AF1E2C3915}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE65645D-B08C-49D3-8B7C-05AF1E2C3915}.Release|Any CPU.Build.0 = Release|Any CPU
+		{016DB06F-782F-4703-B384-F3AA71AB9444}.Debug|Any CPU.ActiveCfg = Debug
+		{016DB06F-782F-4703-B384-F3AA71AB9444}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
